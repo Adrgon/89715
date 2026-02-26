@@ -26,13 +26,49 @@
 
     <h2>Simulación Polyfill includes()</h2>
 
-    <button>1️⃣ Probar sin includes</button>
-    <button>2️⃣ Agregar polyfill</button>
-    <button>3️⃣ Probar con polyfill</button>
+    <button onclick="probarSinPolyfill()">1️⃣ Probar sin includes</button>
+    <button onclick="agregarPolyfill()">2️⃣ Agregar polyfill</button>
+    <button onclick="probarConPolyfill()">3️⃣ Probar con polyfill</button>
 
     <pre id="output"></pre>
 
+    <script>
 
+        // Simulamos navegador viejo eliminando includes
+        Array.prototype.includes = undefined;
+
+        function print(text) {
+            document.getElementById("output").innerText = text;
+        }
+
+        function probarSinPolyfill() {
+            try {
+                var resultado = [1, 2, 3].includes(2);
+                print(resultado);
+            } catch (error) {
+                print("Error: " + error.message);
+            }
+        }
+
+        function agregarPolyfill() {
+            if (!Array.prototype.includes) {
+                Array.prototype.includes = function (search, fromIndex) {
+                    var i = fromIndex || 0;
+                    for (; i < this.length; i++) {
+                        if (this[i] === search) return true;
+                    }
+                    return false;
+                };
+            }
+            print("Polyfill agregado ✅");
+        }
+
+        function probarConPolyfill() {
+            var resultado = [1, 2, 3].includes(2);
+            print(resultado);
+        }
+
+    </script>
 
 </body>
 
