@@ -1,0 +1,64 @@
+.nav {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	backdrop-filter: blur(8px);
+	background: rgba(244, 241, 234, 0.85);
+	border-bottom: 1px solid var(--stroke);
+}
+
+.nav__inner {
+	width: min(1120px, 92vw);
+	margin: 0 auto;
+	padding: 18px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.nav__brand {
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: inherit;
+}
+
+.nav__links {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	font-weight: 500;
+}
+
+.nav__link {
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease, transform 0.2s ease;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+.nav__link:hover {
+	border-color: var(--stroke);
+	transform: translateY(-1px);
+}
+
+.nav__actions {
+	display: flex;
+	align-items: center;
+}
+
+@media (max-width: 720px) {
+	.nav__inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
