@@ -1,6 +1,6 @@
 import "./ItemDetail.css";
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product, onBack }) => {
   if (!product) {
     return null;
   }
@@ -24,7 +24,11 @@ const ItemDetail = ({ product }) => {
           <button type="button" className="detail__cta" disabled={!inStock}>
             {inStock ? "Agregar al carrito" : "No disponible"}
           </button>
-          <button type="button" className="detail__back">
+          <button 
+            type="button" 
+            className="detail__back"
+            onClick={onBack}
+            >
             Seguir comprando
           </button>
         </div>

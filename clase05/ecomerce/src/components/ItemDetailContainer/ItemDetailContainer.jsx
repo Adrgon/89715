@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getProductById } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-const ItemDetailContainer = ({ productId }) => {
+const ItemDetailContainer = ({ productId, onBack }) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -30,7 +30,7 @@ const ItemDetailContainer = ({ productId }) => {
     return <div className="status">{error}</div>;
   }
 
-  return <ItemDetail product={product} />;
+  return <ItemDetail product={product} onBack={onBack} />;
 };
 
 export default ItemDetailContainer;

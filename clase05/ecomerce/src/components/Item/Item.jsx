@@ -1,6 +1,6 @@
 import "./Item.css";
 
-const Item = ({ product }) => {
+const Item = ({ product, onSelectProduct }) => {
   const inStock = product.stock > 0;
 
   return (
@@ -15,7 +15,10 @@ const Item = ({ product }) => {
         <p className={`item-card__stock ${inStock ? "" : "is-empty"}`}>
           {inStock ? `Stock: ${product.stock}` : "Sin stock"}
         </p>
-        <button type="button" className="item-card__cta">
+        <button 
+          type="button" 
+          className="item-card__cta"
+          onClick={()=> onSelectProduct?.(product.id)} >
           Ver detalle
         </button>
       </div>

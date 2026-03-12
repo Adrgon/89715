@@ -6,6 +6,7 @@ import ItemList from "../ItemList/ItemList";
 function ItemListContainer({
   greetings = "Explora productos",
   categoryId = null,
+  onSelectProduct,
 }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ function ItemListContainer({
         setProducts(res);
       })
       .finally(() => {
-        //setLoading(false);
+        setLoading(false);
       });
   }, [categoryId]);
 
@@ -37,7 +38,7 @@ function ItemListContainer({
       ) : products.length === 0 ? (
         <div className="status">No hay productos disponibles.</div>
       ) : (
-        <ItemList products={products} />
+        <ItemList products={products} onSelectProduct={onSelectProduct}/>
       )}
     </section>
   );
