@@ -1,60 +1,54 @@
-import { useState } from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+
 import "./App.css";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
+
+
 function App() {
   const cartCount = 5;
-  const [view, setView] = useState("list"); // "list" | "detail"
-  const [categoryId, setCategoryId] = useState(null);
-  const [productId, setProductId] = useState(null);
 
-
-  const goToDetail = (id) => {
-    setView('detail');
-    setProductId(id)
-  }
-
-  const goHome = () => {
-    setView('list');
-    setCategoryId(null);
-    setProductId(null);
-  }
-
-  const goToCategory = (id) => {
-    setView('list')
-    setCategoryId(id)
-    setProductId(null)
-  }
   return (
-    <div className="app">
-      <NavBar 
-        cartCount={cartCount} 
-        title="Coder Store" 
-        onNavigationHome={goHome}
-        onNavigationCategory={goToCategory}
+    <BrowserRouter>
+      <div className="app">
+        <NavBar
+          cartCount={cartCount}
+          title="Coder Store"
         />
-      
-      <main className="app-content">
-        {view === "list" && (
-          <ItemListContainer 
-            greetings="Productos destacados"
-            categoryId={categoryId}
-            onSelectProduct={goToDetail}
+
+        <main className="app-content">
+          <Routes>
+            <Route
+              path="/"
+              element={<ItemListContainer 
+                greetings="Productos destacados" 
+              />}
             />
-        )}
-        {view === "detail" && productId && (
-          <ItemDetailContainer productId={productId} onBack={goHome} />
-        )}
-        {view === 'detail' && !productId && (
-          <div className="not-found">
-            <h1>404</h1>
-            <p>Producto no encontrado</p>
-          </div>
-        )}
-      </main>
-    </div>
+            <Route
+              path="/caterogy/:categoryId"
+              element={
+                <ItemListContainer
+                  greetings="Categoria seleccionada"
+              />} 
+            />
+            <Route 
+              path="/detail/:productId"
+              element={<ItemDetailContainer />}
+            />
+            <Route path="*"
+              element={
+                <div className="not-found">
+                  <h1>404</h1>
+                  <p>Producto no encontrado</p>
+                </div>
+              }
+            />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

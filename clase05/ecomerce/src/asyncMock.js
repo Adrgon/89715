@@ -22,8 +22,8 @@ const products = [
     name: "Ipad 8va generacion",
     price: 1200,
     category: "tablet",
-    img: "https://medias.musimundo.com/medias/00406046-143516-143516-01-143516-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MjI1MnxpbWFnZS9qcGVnfGhjMC9oYWMvMTAyODM0OTc0NTU2NDYvMDA0MDYwNDYtMTQzNTE2LTE0MzUxNl8wMS0xNDM1MTZfMDEuanBnX3NpemU1MTV8MzA0NmMzNGFhZjUwMDY2YjY5MjU0MjlkMGJlYWMxODAxZjE5ODJhZmJlOTczZThmZjE2NTQxMjU5NjE2OTA4Yw",
-    stock: 0,
+    img: "https://mauricomputacion.com.ar/images/productos/24506.webp",
+    stock: 10,
     description: "Descripcion de Ipad",
   },
   {
@@ -32,7 +32,7 @@ const products = [
     price: 1200,
     category: "computer",
     img: "https://bangho.vtexassets.com/arquivos/ids/161330/notebook-gamer-gm-15z12-gtx1650-4gb-gddr6-windows-11-1.jpg?v=638082621108000000",
-    stock: 0,
+    stock: 5,
     description: "Descripcion de Ipad",
   },
 ];

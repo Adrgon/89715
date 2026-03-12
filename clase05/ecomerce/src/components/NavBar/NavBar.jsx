@@ -1,37 +1,37 @@
+import { Link } from "react-router-dom";
+
 import "./NavBar.css";
 import CardWidget from "../CardWidget/CardWidget";
 
-function NavBar({ cartCount, title,  onNavigationHome, onNavigationCategory }) {
+
+function NavBar({ cartCount, title }) {
   console.log(cartCount)
   console.log(title)
   return (
     <header className="nav">
       <div className="nav__inner">
-        <button type="button" className="nav__brand" onClick={onNavigationHome}>
+        <Link  className="nav__brand" to="/">
           {title}
-        </button>
+        </Link>
         <nav className="nav__links" aria-label="Categorias">
-          <button
-            type="button"
+          <Link
             className="nav__link"
-            onClick={() => onNavigationCategory("celular")}
+            to="/category/celular"
           >
             Phones
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
             className="nav__link"
-            onClick={() => onNavigationCategory("tablet")}
+            to="/category/tablet"
           >
             Tablets
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
             className="nav__link"
-            onClick={() => onNavigationCategory("computer")}
+            to="/category/computer"
           >
             Computers
-          </button>
+          </Link>
         </nav>
         <div className="nav__actions">
           <CardWidget cartCount={cartCount} />
