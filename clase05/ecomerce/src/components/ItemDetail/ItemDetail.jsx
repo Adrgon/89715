@@ -1,6 +1,7 @@
 import "./ItemDetail.css";
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({ product, onBack }) => {
+const ItemDetail = ({ product }) => {
   if (!product) {
     return null;
   }
@@ -24,13 +25,9 @@ const ItemDetail = ({ product, onBack }) => {
           <button type="button" className="detail__cta" disabled={!inStock}>
             {inStock ? "Agregar al carrito" : "No disponible"}
           </button>
-          <button 
-            type="button" 
-            className="detail__back"
-            onClick={onBack}
-            >
+          <Link className="detail__back" to="/">
             Seguir comprando
-          </button>
+          </Link>
         </div>
       </div>
     </section>

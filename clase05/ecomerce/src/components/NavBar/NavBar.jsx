@@ -1,35 +1,22 @@
-import { Link } from "react-router-dom";
-
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 import CardWidget from "../CardWidget/CardWidget";
 
-
 function NavBar({ cartCount, title }) {
-  console.log(cartCount)
-  console.log(title)
   return (
     <header className="nav">
       <div className="nav__inner">
-        <Link  className="nav__brand" to="/">
+        <Link className="nav__brand" to="/">
           {title}
         </Link>
         <nav className="nav__links" aria-label="Categorias">
-          <Link
-            className="nav__link"
-            to="/category/celular"
-          >
+          <Link className="nav__link" to="/category/celular">
             Phones
           </Link>
-          <Link
-            className="nav__link"
-            to="/category/tablet"
-          >
+          <Link className="nav__link" to="/category/tablet">
             Tablets
           </Link>
-          <Link
-            className="nav__link"
-            to="/category/computer"
-          >
+          <Link className="nav__link" to="/category/computer">
             Computers
           </Link>
         </nav>

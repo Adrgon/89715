@@ -1,15 +1,11 @@
 import "./ItemList.css";
 import Item from "../Item/Item";
 
-const ItemList = ({ products, onSelectProduct }) => {
+const ItemList = ({ products }) => {
   return (
     <div className="item-grid">
       {products.map((product) => (
-        <Item 
-          product={product} 
-          key={product.id} 
-          onSelectProduct={onSelectProduct}
-          />
+        <Item product={product} key={product.id} />
       ))}
     </div>
   );

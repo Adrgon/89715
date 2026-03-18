@@ -1,6 +1,7 @@
 import "./Item.css";
+import { Link } from "react-router-dom";
 
-const Item = ({ product, onSelectProduct }) => {
+const Item = ({ product }) => {
   const inStock = product.stock > 0;
 
   return (
@@ -15,12 +16,9 @@ const Item = ({ product, onSelectProduct }) => {
         <p className={`item-card__stock ${inStock ? "" : "is-empty"}`}>
           {inStock ? `Stock: ${product.stock}` : "Sin stock"}
         </p>
-        <button 
-          type="button" 
-          className="item-card__cta"
-          onClick={()=> onSelectProduct?.(product.id)} >
+        <Link className="item-card__cta" to={`/detail/${product.id}`}>
           Ver detalle
-        </button>
+        </Link>
       </div>
     </article>
   );

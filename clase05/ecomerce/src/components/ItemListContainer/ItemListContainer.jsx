@@ -2,14 +2,12 @@ import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
 import { getProducts, getProductsByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
-function ItemListContainer({
-  greetings = "Explora productos",
-  categoryId = null,
-  onSelectProduct,
-}) {
+function ItemListContainer({ greetings = "Explora productos" }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -38,7 +36,7 @@ function ItemListContainer({
       ) : products.length === 0 ? (
         <div className="status">No hay productos disponibles.</div>
       ) : (
-        <ItemList products={products} onSelectProduct={onSelectProduct}/>
+        <ItemList products={products} />
       )}
     </section>
   );

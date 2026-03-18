@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getProductById } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-const ItemDetailContainer = ({ productId, onBack }) => {
+const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { productId } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -30,7 +32,7 @@ const ItemDetailContainer = ({ productId, onBack }) => {
     return <div className="status">{error}</div>;
   }
 
-  return <ItemDetail product={product} onBack={onBack} />;
+  return <ItemDetail product={product} />;
 };
 
 export default ItemDetailContainer;
