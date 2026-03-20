@@ -1,24 +1,39 @@
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CardWidget from "../CardWidget/CardWidget";
 
 function NavBar({ cartCount, title }) {
   return (
     <header className="nav">
       <div className="nav__inner">
-        <Link className="nav__brand" to="/">
+        <NavLink className="nav__brand" to="/" end>
           {title}
-        </Link>
+        </NavLink>
         <nav className="nav__links" aria-label="Categorias">
-          <Link className="nav__link" to="/category/celular">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav__link nav__link--active" : "nav__link"
+            }
+            to="/category/celular"
+          >
             Phones
-          </Link>
-          <Link className="nav__link" to="/category/tablet">
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav__link nav__link--active" : "nav__link"
+            }
+            to="/category/tablet"
+          >
             Tablets
-          </Link>
-          <Link className="nav__link" to="/category/computer">
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav__link nav__link--active" : "nav__link"
+            }
+            to="/category/computer"
+          >
             Computers
-          </Link>
+          </NavLink>
         </nav>
         <div className="nav__actions">
           <CardWidget cartCount={cartCount} />

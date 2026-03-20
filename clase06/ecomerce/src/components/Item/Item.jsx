@@ -16,6 +16,10 @@ const Item = ({ product }) => {
         <p className={`item-card__stock ${inStock ? "" : "is-empty"}`}>
           {inStock ? `Stock: ${product.stock}` : "Sin stock"}
         </p>
+{/*     <a className="item-card__cta" href={`/detail/${product.id}`}>
+          Ver detalle
+        </a> 
+*/}
         <Link className="item-card__cta" to={`/detail/${product.id}`}>
           Ver detalle
         </Link>

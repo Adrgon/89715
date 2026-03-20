@@ -1,12 +1,23 @@
+import { useCart } from "../../context/CartContext";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
-  if (!product) {
-    return null;
-  }
 
-  const inStock = product.stock > 0;
+const {addItem} = useCart()
+if (!product) {
+  return null;
+}
+
+const inStock = product.stock > 0;
+
+const handleAddToCart = () => {
+  addItem(product, 1)
+}
+
+
+
+  
 
   return (
     <section className="detail">
@@ -22,7 +33,7 @@ const ItemDetail = ({ product }) => {
         </p>
         <p className="detail__description">{product.description}</p>
         <div className="detail__actions">
-          <button type="button" className="detail__cta" disabled={!inStock}>
+          <button onClick={handleAddToCart} type="button" className="detail__cta" disabled={!inStock}>
             {inStock ? "Agregar al carrito" : "No disponible"}
           </button>
           <Link className="detail__back" to="/">

@@ -44,6 +44,11 @@
 	transform: translateY(-1px);
 }
 
+.nav__link--active {
+	border-color: #6b4eff;
+	box-shadow: 0 0 0 1px rgba(107, 78, 255, 0.25);
+}
+
 .nav__actions {
 	display: flex;
 	align-items: center;
